@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { EventList } from "./event/EventList";
+import { EventCreate } from "./event/EventCreate";
+import { EventEdit } from "./event/EventEdit";
+import { EventShow } from "./event/EventShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +34,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="Event"
+          list={EventList}
+          edit={EventEdit}
+          create={EventCreate}
+          show={EventShow}
+        />
+      </Admin>
     </div>
   );
 };
